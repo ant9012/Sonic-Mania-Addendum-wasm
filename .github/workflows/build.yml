@@ -30,4 +30,4 @@ jobs:
         with:
           name: game-wasm
           # Adjust this path if CMake outputs the file into a sub-directory like build/bin/
-          path: build/SonicMania.wasm
+          path: build/Addendum.wasm
