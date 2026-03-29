@@ -57,6 +57,7 @@ if(GAME_STATIC)
 else()
     add_library(${GAME_NAME} SHARED ${GAME_SOURCES})
 endif()
+endif()
 
 target_include_directories(${GAME_NAME} PRIVATE
     ${GAME_NAME}/
