@@ -23,6 +23,7 @@ set(emsc_link_options
     -pthread
     -g
     -sASYNCIFY
+    -sINVOKE_RUN=0
 )
 
 target_link_options(${GAME_NAME} PRIVATE ${emsc_link_options})
