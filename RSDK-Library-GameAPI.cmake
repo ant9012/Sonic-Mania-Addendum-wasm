@@ -31,6 +31,7 @@ set(emsc_link_options
     -sUSE_PTHREADS=1
     -sPTHREAD_POOL_SIZE=4
     -pthread
+    -g
 )
 
 target_link_options(${GAME_NAME} PRIVATE ${emsc_link_options})
