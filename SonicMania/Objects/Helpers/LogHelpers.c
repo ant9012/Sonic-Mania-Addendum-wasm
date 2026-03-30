@@ -49,6 +49,9 @@ void LogHelpers_PrintInt32(const char *message, int32 value)
 
 void LogHelpers_Print(const char *message, ...)
 {
+#ifdef __EMSCRIPTEN__
+    return;
+#else
     if (!SceneInfo->inEditor) {
         char messageText[0x100];
 
@@ -68,6 +71,7 @@ void LogHelpers_Print(const char *message, ...)
 
         va_end(args);
     }
+#endif
 }
 
 #if MANIA_USE_PLUS
