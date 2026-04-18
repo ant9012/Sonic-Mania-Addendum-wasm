@@ -401,7 +401,6 @@ void Zone_StoreEntities(int32 xOffset, int32 yOffset)
 
 void Zone_ReloadStoredEntities(int32 xOffset, int32 yOffset, bool32 setATLBounds)
 {
-    EntityPlayer *leader = RSDK_GET_ENTITY(SLOT_PLAYER1, Player);
     // reload any stored entities we have
     for (int32 e = 0; e < globals->atlEntityCount; ++e) {
         Entity *storedEntity = (Entity *)&globals->atlEntityData[e << 9];
@@ -454,7 +453,7 @@ void Zone_ReloadStoredEntities(int32 xOffset, int32 yOffset, bool32 setATLBounds
 
     Player->savedLives      = globals->restartLives[0];
     Player->savedScore      = globals->restartScore;
-    leader->shield          = globals->restartShield;
+    Player->powerups        = globals->restartShield;
     globals->atlEntityCount = 0;
 }
 
@@ -797,7 +796,7 @@ int32 Zone_GetListPos_ManiaMode(void)
 void Zone_Draw_Fade(void)
 {
     RSDK_THIS(Zone);
-    RSDK.FillScreen(self->fadeColor, self->timer, self->timer, self->timer);
+    RSDK.FillScreen(self->fadeColor, self->timer, self->timer - 128, self->timer - 0x100);
 }
 
 void Zone_State_FadeOut(void)
