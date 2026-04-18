@@ -52,11 +52,11 @@ endif()
 if(EMSCRIPTEN)
     include(RSDK-Library-GameAPI.cmake)
 else()
-if(GAME_STATIC)
-    add_library(${GAME_NAME} STATIC ${GAME_SOURCES})
-else()
-    add_library(${GAME_NAME} SHARED ${GAME_SOURCES})
-endif()
+    if(GAME_STATIC)
+        add_library(${GAME_NAME} STATIC ${GAME_SOURCES})
+    else()
+        add_library(${GAME_NAME} SHARED ${GAME_SOURCES})
+    endif()
 endif()
 
 target_include_directories(${GAME_NAME} PRIVATE
@@ -97,4 +97,10 @@ else()
         MANIA_FIRST_RELEASE=$<BOOL:${MANIA_FIRST_RELEASE}>
         GAME_VERSION=${GAME_VERSION}
     )
+endif()
+
+# MSVC likes to merge similar functions together even though their addresses are being referenced.
+# Disable COMDAT folding to fix some bugs like not drowning when suspended to a pull chain in HCZ.
+if(MSVC)
+    target_link_options(${GAME_NAME} PRIVATE /OPT:NOICF)
 endif()
