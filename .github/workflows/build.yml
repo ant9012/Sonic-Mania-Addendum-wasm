@@ -19,7 +19,7 @@ jobs:
         uses: mymindstorm/setup-emsdk@v14
 
       - name: Configure CMake
-        run: emcmake cmake -B build
+        run: emcmake cmake -B build -DRETRO_REVISION=2
 
       - name: Build Project
         run: cmake --build build
