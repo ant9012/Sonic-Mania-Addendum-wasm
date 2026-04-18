@@ -18,6 +18,7 @@ set(emsc_link_options
     -sSHARED_MEMORY=1
     -sPTHREAD_POOL_SIZE=4
     -pthread
+    -sEMULATE_FUNCTION_POINTER_CASTS=1
 
     -sEXPORT_ALL=1
     -Wl,--export-all
