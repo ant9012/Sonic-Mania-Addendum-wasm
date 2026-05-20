@@ -872,19 +872,27 @@ void TitleCard_Draw_SlideAway(void)
 
     // Orange Strip
     if (self->vertMovePos[1].x < TO_FIXED(240))
+        RSDK.PrintLog(PRINT_NORMAL, "Drawing Orange strip at X: %d", self->stripVertsOrange[0].x >> 16);
         RSDK.DrawFace(self->stripVertsOrange, 4, (colors[0] >> 16) & 0xFF, (colors[0] >> 8) & 0xFF, (colors[0] >> 0) & 0xFF, 0xFF, INK_NONE);
+        RSDK.PrintText(PRINT_NORMAL, "Finished drawing Orange strip");
 
     // Green Strip
     if (self->vertMovePos[1].y < TO_FIXED(240))
+        RSDK.PrintLog(PRINT_NORMAL, "Drawing Green strip at X: %d", self->stripVertsGreen[0].x >> 16);
         RSDK.DrawFace(self->stripVertsGreen, 4, (colors[1] >> 16) & 0xFF, (colors[1] >> 8) & 0xFF, (colors[1] >> 0) & 0xFF, 0xFF, INK_NONE);
+        RSDK.PrintText(PRINT_NORMAL, "Finished drawing Green strip");
 
     // Red Strip
     if (self->vertMovePos[0].y < TO_FIXED(240))
+        RSDK.PrintLog(PRINT_NORMAL, "Drawing Red strip at X: %d", self->stripVertsRed[0].x >> 16);
         RSDK.DrawFace(self->stripVertsRed, 4, (colors[2] >> 16) & 0xFF, (colors[2] >> 8) & 0xFF, (colors[2] >> 0) & 0xFF, 0xFF, INK_NONE);
+        RSDK.PrintText(PRINT_NORMAL, "Finished drawing Red Strip")
 
     // Blue Strip
     if (self->vertMovePos[0].x < TO_FIXED(240))
+        RSDK.PrintLog(PRINT_NORMAL, "Drawing Blue strip at X: %d", self->stripVertsBlue[0].x >> 16);
         RSDK.DrawFace(self->stripVertsBlue, 4, (colors[3] >> 16) & 0xFF, (colors[3] >> 8) & 0xFF, (colors[3] >> 0) & 0xFF, 0xFF, INK_NONE);
+        RSDK.PrintText(PRINT_NORMAL, "Finished drawing Blue Strip")
 
     // Draw "Sonic Mania"
     if (!globals->atlEnabled && !globals->suppressTitlecard) {
