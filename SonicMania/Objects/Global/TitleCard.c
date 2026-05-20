@@ -489,6 +489,7 @@ void TitleCard_State_EnterTitle(void)
 void TitleCard_State_ShowingTitle(void)
 {
     RSDK_THIS(TitleCard);
+    RSDK.PrintText(PRINT_NORMAL, "DRAW_SHOWINGTITLE");
 
     Zone_ApplyWorldBounds();
     TitleCard_HandleCamera();
@@ -673,6 +674,7 @@ void TitleCard_State_Supressed(void)
 void TitleCard_Draw_SlideIn(void)
 {
     RSDK_THIS(TitleCard);
+    RSDK.PrintText(PRINT_NORMAL, "DRAW_SLIDEIN");
 
     color colors[5];
 #if MANIA_USE_PLUS
@@ -845,6 +847,7 @@ void TitleCard_Draw_ShowTitleCard(void)
 void TitleCard_Draw_SlideAway(void)
 {
     RSDK_THIS(TitleCard);
+    RSDK.PrintText(PRINT_NORMAL, "DRAW_SLIDEAWAY");
 
     color colors[5];
 #if MANIA_USE_PLUS
