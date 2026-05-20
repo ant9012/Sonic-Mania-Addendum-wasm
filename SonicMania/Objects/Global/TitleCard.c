@@ -522,6 +522,8 @@ void TitleCard_State_SlideAway(void)
 
     Zone_ApplyWorldBounds();
 
+    LogHelpers_Print("TitleCard_State_SlideAway() called!")
+
     int32 speed = ++self->actionTimer << 18;
     self->stripVertsGreen[0].x -= speed;
     self->stripVertsGreen[0].y -= speed;
@@ -838,6 +840,8 @@ void TitleCard_Draw_ShowTitleCard(void)
 void TitleCard_Draw_SlideAway(void)
 {
     RSDK_THIS(TitleCard);
+
+    LogHelpers_Print("TitleCard_Draw_SlideAway() called!")
 
     color colors[5];
 #if MANIA_USE_PLUS
