@@ -25,7 +25,9 @@ jobs:
           emcmake cmake -B build_v5U -DCMAKE_BUILD_TYPE=Release -DRETRO_REVISION=3
 
       - name: Build Project
-        run: cmake --build build --parallel
+        run: |
+              cmake --build build_v5 --parallel
+              cmake --build build_v5U --parallel
 
       - name: Zip Builds
         run: |
