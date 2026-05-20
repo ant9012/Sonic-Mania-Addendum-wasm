@@ -31,6 +31,8 @@ void TitleCard_Create(void *data)
 {
     RSDK_THIS(TitleCard);
 
+    LogHelpers_Print("TitleCard_Create Called");
+
     if (!SceneInfo->inEditor) {
         self->active    = ACTIVE_ALWAYS;
         self->visible   = true;
@@ -668,6 +670,8 @@ void TitleCard_State_Supressed(void)
 void TitleCard_Draw_SlideIn(void)
 {
     RSDK_THIS(TitleCard);
+
+    LogHelpers_Print("TitleCard_Draw_SlideIn() called!");
 
     color colors[5];
 #if MANIA_USE_PLUS
