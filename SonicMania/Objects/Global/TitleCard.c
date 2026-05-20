@@ -31,7 +31,7 @@ void TitleCard_Create(void *data)
 {
     RSDK_THIS(TitleCard);
 
-    LogHelpers_Print("TitleCard_Create Called");
+    RSDK.PrintText(PRINT_NORMAL, "TitleCard_Create() was called!");
 
     if (!SceneInfo->inEditor) {
         self->active    = ACTIVE_ALWAYS;
@@ -524,7 +524,7 @@ void TitleCard_State_SlideAway(void)
 
     Zone_ApplyWorldBounds();
 
-    LogHelpers_Print("TitleCard_State_SlideAway() called!");
+    RSDK.PrintText(PRINT_NORMAL, "TitleCard_State_SlideAway() was called!");
 
     int32 speed = ++self->actionTimer << 18;
     self->stripVertsGreen[0].x -= speed;
@@ -671,7 +671,7 @@ void TitleCard_Draw_SlideIn(void)
 {
     RSDK_THIS(TitleCard);
 
-    LogHelpers_Print("TitleCard_Draw_SlideIn() called!");
+    RSDK.PrintText(PRINT_NORMAL, "TitleCard_Draw_SlideIn() called!");
 
     color colors[5];
 #if MANIA_USE_PLUS
@@ -845,7 +845,7 @@ void TitleCard_Draw_SlideAway(void)
 {
     RSDK_THIS(TitleCard);
 
-    LogHelpers_Print("TitleCard_Draw_SlideAway() called!");
+    RSDK.PrintText(PRINT_NORMAL, "TitleCard_Draw_SlideAway() called!");
 
     color colors[5];
 #if MANIA_USE_PLUS
