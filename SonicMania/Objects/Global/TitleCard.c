@@ -886,13 +886,13 @@ void TitleCard_Draw_SlideAway(void)
     if (self->vertMovePos[0].y < TO_FIXED(240))
         RSDK.PrintLog(PRINT_NORMAL, "Drawing Red strip at X: %d", self->stripVertsRed[0].x >> 16);
         RSDK.DrawFace(self->stripVertsRed, 4, (colors[2] >> 16) & 0xFF, (colors[2] >> 8) & 0xFF, (colors[2] >> 0) & 0xFF, 0xFF, INK_NONE);
-        RSDK.PrintText(PRINT_NORMAL, "Finished drawing Red Strip")
+        RSDK.PrintText(PRINT_NORMAL, "Finished drawing Red Strip");
 
     // Blue Strip
     if (self->vertMovePos[0].x < TO_FIXED(240))
         RSDK.PrintLog(PRINT_NORMAL, "Drawing Blue strip at X: %d", self->stripVertsBlue[0].x >> 16);
         RSDK.DrawFace(self->stripVertsBlue, 4, (colors[3] >> 16) & 0xFF, (colors[3] >> 8) & 0xFF, (colors[3] >> 0) & 0xFF, 0xFF, INK_NONE);
-        RSDK.PrintText(PRINT_NORMAL, "Finished drawing Blue Strip")
+        RSDK.PrintText(PRINT_NORMAL, "Finished drawing Blue Strip");
 
     // Draw "Sonic Mania"
     if (!globals->atlEnabled && !globals->suppressTitlecard) {
