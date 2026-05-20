@@ -12,7 +12,6 @@ ObjectTitleCard *TitleCard;
 void TitleCard_Update(void)
 {
     RSDK_THIS(TitleCard);
-    RSDK.PrintLog(PRINT_NORMAL, "TitleCard Active: %d, State: %p", self->active, self->state);
 
     StateMachine_Run(self->state);
 }
