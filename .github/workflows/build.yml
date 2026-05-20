@@ -20,13 +20,22 @@ jobs:
         uses: emscripten-core/setup-emsdk@v16
 
       - name: Configure CMake
-        run: emcmake cmake -B build -DCMAKE_BUILD_TYPE=Release -DRETRO_REVISION=2
+        run: |
+          emcmake cmake -B build_v5 -DCMAKE_BUILD_TYPE=Release -DRETRO_REVISION=2
+          emcmake cmake -B build_v5U -DCMAKE_BUILD_TYPE=Release -DRETRO_REVISION=3
 
       - name: Build Project
         run: cmake --build build --parallel
+
+      - name: Zip Builds
+        run: |
+            zip -r build_v5.zip ./build_v5/
+            zip -r build_v5U.zip ./build_v5U/
 
       - name: Upload Game.wasm
         uses: actions/upload-artifact@v4
         with:
           name: game-wasm
-          path: build/Addendum.wasm
+          path: |
+                build_v5.zip
+                build_v5U.zip
