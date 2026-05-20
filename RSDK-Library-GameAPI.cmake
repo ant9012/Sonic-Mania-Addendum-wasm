@@ -16,16 +16,13 @@ set(emsc_link_options
     -sUSE_PTHREADS=1
     -sIMPORTED_MEMORY=1
     -sSHARED_MEMORY=1
-    -sPTHREAD_POOL_SIZE=4
     -pthread
-    -sEMULATE_FUNCTION_POINTER_CASTS=1
 
     -sEXPORT_ALL=1
     -Wl,--export-all
     -Wl,--no-gc-sections
 
     -sERROR_ON_UNDEFINED_SYMBOLS=0
-    -sALLOW_MEMORY_GROWTH=1
 
     -g
 )
