@@ -1,6 +1,7 @@
 name: Build and Upload Game.wasm
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "stable-wasm" ]
   pull_request:
