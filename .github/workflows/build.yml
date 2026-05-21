@@ -1,0 +1,43 @@
+name: Build and Upload Game.wasm
+
+on:
+  push:
+    branches: [ "stable-wasm" ]
+  pull_request:
+    branches: [ "stable-wasm" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Emscripten
+        uses: emscripten-core/setup-emsdk@v16
+
+      - name: Configure CMake
+        run: |
+          emcmake cmake -B build_v5 -DCMAKE_BUILD_TYPE=Release -DRETRO_REVISION=2
+          emcmake cmake -B build_v5U -DCMAKE_BUILD_TYPE=Release -DRETRO_REVISION=3
+
+      - name: Build Project
+        run: |
+              cmake --build build_v5 --parallel
+              cmake --build build_v5U --parallel
+
+      - name: Zip Builds
+        run: |
+            zip -r build_v5.zip ./build_v5/
+            zip -r build_v5U.zip ./build_v5U/
+
+      - name: Upload Game.wasm
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-wasm
+          path: |
+                build_v5.zip
+                build_v5U.zip
