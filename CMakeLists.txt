@@ -48,7 +48,9 @@ else()
         ${GAME_NAME}/Objects/All.c
     )
 endif()
-
+if(EMSCRIPTEN)
+    include(RSDK-Library-GameAPI.cmake)
+else()
 if(GAME_STATIC)
     add_library(${GAME_NAME} STATIC ${GAME_SOURCES})
 else()
